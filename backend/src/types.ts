@@ -5,7 +5,8 @@ export enum Direction {
   Straight,
   Spiky,
   Spiraled,
-  Lyre-shaped,
+  Lyre,
+  shaped,
 }
 
 export type Antelope = {

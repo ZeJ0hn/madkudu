@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import logger from 'pino'
 
 import {Antelope} from './types';
 
