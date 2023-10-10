@@ -1,11 +1,13 @@
 import express, { Request, Response } from 'express';
 import DB from "./db";
 import cors from "cors";
+import pino from 'pino-http'
 
 const app = express()
 const port = 3000
 
 app.use(cors())
+app.use(pino())
 
 const db = new DB('data/species.json')
 

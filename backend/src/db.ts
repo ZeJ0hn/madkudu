@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import logger from 'pino'
+import logger from './logger'
 
 import {Antelope} from './types';
 
@@ -12,9 +12,9 @@ export default class DB {
         try {
             const raw = fs.readFileSync(filepath, 'utf-8');
             this.data = JSON.parse(raw);
-            //TODO Add Logging
+            logger.info(`File ${filepath} has been loaded successfully.`)
         } catch (err) {
-            //TODO Add Logging
+            logger.error(`Unable to load ${filepath}.`, err)
             this.data = undefined
         }
     }
