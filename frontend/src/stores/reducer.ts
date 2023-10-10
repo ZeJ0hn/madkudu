@@ -10,12 +10,12 @@ export enum FetchStatus {
 
 export interface State {
     species: Antelope[]
-    speciesStatus: FetchStatus
+    fetchStatus: FetchStatus
 }
 
 const initialState: State = {
     species: [],
-    speciesStatus: FetchStatus.DEFAULT
+    fetchStatus: FetchStatus.DEFAULT
 }
 
 export const slice = createSlice({
@@ -23,14 +23,14 @@ export const slice = createSlice({
     initialState,
     reducers: {
         fetchAntelopeStart: (state) => {
-            state.speciesStatus = FetchStatus.LOADING
+            state.fetchStatus = FetchStatus.LOADING
         },
         fetchAntelopeSuccess: (state, action: PayloadAction<Antelope[]>) => {
             state.species = action.payload
-            state.speciesStatus = FetchStatus.SUCCESS
+            state.fetchStatus = FetchStatus.SUCCESS
         },
         fetchAntelopeFailure: (state, action: PayloadAction<string>) => {
-            state.speciesStatus = FetchStatus.FAILURE
+            state.fetchStatus = FetchStatus.FAILURE
         }
     }
 })
