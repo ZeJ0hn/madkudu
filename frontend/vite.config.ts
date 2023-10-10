@@ -7,6 +7,9 @@ export default defineConfig({
   build: {
     outDir: 'build',
   },
+  server:{
+    host: true
+  },
   plugins: [react()],
   resolve: {
     alias: {

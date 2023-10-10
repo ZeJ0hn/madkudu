@@ -1,0 +1,19 @@
+# Use root/example as user/password credentials
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    image: "backend:latest"
+    restart: always
+    ports:
+      - 3000:3000
+
+  frontend:
+    build: ./frontend
+    image: "frontend:latest"
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - 5173:5173
