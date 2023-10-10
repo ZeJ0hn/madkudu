@@ -13,8 +13,8 @@ const Header = () => {
                 <div className="text-4xl ml-8">
                     Antelop'Mark
                 </div>
-                <div className="pt-2 text-md">
-                    The Benchmark for all Antelopes
+                <div className="pt-2 text-md capitalize">
+                    The ultimate antelopes Benchmark
                 </div>
             </div>
         </div>
