@@ -25,7 +25,7 @@ const Root = () => {
                 {
                     status == FetchStatus.SUCCESS &&
                     <>
-                        <TitledComponent className="mt-8 w-full" title="List of all Antelopes">
+                        <TitledComponent className="mt-8 w-full" title="All Antelopes">
                             <Table/>
                         </TitledComponent>
                         <TitledComponent className="mt-16 w-full" title="Who is the strongest?">
