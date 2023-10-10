@@ -3,13 +3,14 @@ import ReactApexChart from "react-apexcharts";
 import {useSelector} from "react-redux";
 import {selectAntelope} from "~/stores/selector";
 import {ApexOptions} from "apexcharts";
+import {startCase} from "lodash";
 
 const Scatter = () => {
 
     const antelopes = useSelector(selectAntelope)
 
     const series = useMemo(() => antelopes.map((a) => ({
-        name: a.name,
+        name: startCase(a.name),
         data: [[a.weight, a.height]]
     })), [antelopes]);
 

@@ -28,16 +28,14 @@ const TreeMap = () => {
 
     const options: ApexOptions = {
         legend: {
-            show: true
+            show: true,
+            fontSize: "18px",
+            offsetY: 6,
         },
         chart: {
             height: 400,
             width: 600,
             type: 'treemap'
-        },
-        title: {
-            text: 'Horn type per Continent',
-            align: 'center'
         }
     }
 
