@@ -27,11 +27,6 @@ const Scatter = () => {
         },
         xaxis: {
             tickAmount: 10,
-            labels: {
-                formatter: (val) => {
-                    return parseFloat(val).toFixed(1)
-                }
-            },
             title: {
                 text: 'Weight'
             }
@@ -44,6 +39,20 @@ const Scatter = () => {
         },
         legend: {
             show: false
+        },
+        tooltip: {
+            custom: ({seriesIndex, w}) => {
+                const serie = w.globals.initialSeries[seriesIndex];
+
+                // FIXME It seems that it's not possible to use tailwind here
+                return '<div style="margin:0.5rem">' +
+                    serie.name +
+                    '<ul style="margin-top:0.5rem">' +
+                        '<li><b>Weigth</b>: ' + serie.data[0][0] + '</li>' +
+                        '<li><b>Heigth</b>: ' + serie.data[0][1] + '</li>' +
+                    '</ul>' +
+                '</div>';
+            }
         }
     }
 
