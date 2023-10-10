@@ -7,7 +7,7 @@ const Header = () => {
             <img
                 className="h-20"
                 src="/logo.png"
-                alt="Resilient Quest Logo"
+                alt="Antelop'Mark Logo"
             />
             <div className="ml-8 flex flex-col">
                 <div className="text-4xl ml-8">
