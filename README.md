@@ -26,5 +26,6 @@ The frontend is now available on: http://localhost:5173
 ### Usability and Ergonomy
 
 - Add upload button to allow user to work using its own JSON file.
+- Add list of antelopes in the TreeMap's tooltip.
 - Add mark on the header table to visualize on which column table is sorted.
 - Use a CSS ninja to fix all glitches.
