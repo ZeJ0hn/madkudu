@@ -1,4 +1,6 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
+
+import React, { useCallback } from 'react'
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 import { selectAntelope } from '~/stores/selector'
@@ -25,6 +27,10 @@ const TreeMap = () => {
     }
   })
 
+  const getAntelopes = useCallback((continent: string, horns: string) =>
+    antelopes.filter((a) => a.continent === continent && a.horns === horns)
+  , [antelopes])
+
   const options: ApexOptions = {
     legend: {
       show: true,
@@ -35,6 +41,25 @@ const TreeMap = () => {
       height: 400,
       width: 600,
       type: 'treemap'
+    },
+    tooltip: {
+      custom: ({ seriesIndex, dataPointIndex, w }) => {
+        const continent = w.globals.initialSeries[seriesIndex]
+        const horns = continent.data[dataPointIndex]
+        const toDisplay = getAntelopes(continent.name, horns.x)
+
+        let html = '<div style="margin:0.5rem">' +
+          horns.x + ' horns from ' + continent.name + ':' +
+          '<ul style="margin-top:0.5rem">'
+
+        for (const t of toDisplay) {
+          html += '<li>- ' + t.name + '</li>'
+        }
+        html += '</div>'
+
+        // FIXME It seems that it's not possible to use tailwind here
+        return html
+      }
     }
   }
 
